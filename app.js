@@ -1,16 +1,13 @@
-import express from 'express';
-import examGroupRoutes from './src/routes/exam-group';
-
+const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
+const examRoutes = require('./routes/examRoutes');
 
 app.use(express.json());
+app.use('/exam-group', examRoutes);
 
-
-app.use('/api', examGroupRoutes);
-
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
+    
